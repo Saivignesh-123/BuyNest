@@ -1,135 +1,185 @@
+# 🛒 BuyNest — Full Stack E-Commerce Platform
 
+> A modern full-stack e-commerce platform where users can browse, shop, and manage orders — powered by React, Spring Boot, and Docker.
 
-# 🛍️ Full Stack E-commerce Web Application
+---
 
-A full-stack **E-commerce application** using **Spring Boot** (Java) for the backend and **ReactJS with Vite** for the frontend. This application demonstrates the integration of RESTful APIs with a modern frontend stack, ideal for learning and demonstration purposes.
+## 🌐 Live Demo
+
+|                | Link                                      |
+| -------------- | ----------------------------------------- |
+| 🖥️ Frontend   | https://buynest-vignesh.netlify.app       |
+| ⚙️ Backend API | https://buynest-backend-12nk.onrender.com |
+
+> ⚠️ Backend is hosted on Render free tier — may take 30–60 seconds to wake up on first request.
+
+---
+
+## 👑 Roles in the System
+
+### 🙋 Customer
+
+Users can:
+
+* ✅ Register & Login securely (JWT-based)
+* ✅ Browse products across categories
+* ✅ Search and filter products
+* ✅ Add items to cart
+* ✅ Place orders
+* ✅ View order history
+* ✅ Cancel pending orders
+
+---
+
+### 👑 Admin
+
+Admin has full control over the platform:
+
+* 👑 Add new products (with image upload)
+* 👑 Update product details
+* 👑 Delete products
+* 👑 View all customer orders
+* 👑 Update order status (Pending → Delivered)
+* 👑 Manage entire store operations
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* JWT-based authentication
+* Role-based access (USER / ADMIN)
+* Secure password encryption (BCrypt)
+
+---
+
+### 🛍️ Product Management
+
+* Add, update, delete products
+* Product images stored in database
+* Category-based filtering
+* Search functionality
+
+---
+
+### 🛒 Cart System
+
+* Persistent cart (stored in DB)
+* Add/remove/update quantity
+* Auto total calculation
+
+---
+
+### 📦 Order System
+
+* Place orders from cart
+* Track order status
+* Cancel pending orders
+* Admin order management
+
+---
+
+### 🎨 UI/UX
+
+* Dark premium theme (Gold + Black)
+* Fully responsive design
+* Smooth user experience
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React (Vite)
+* CSS3
+* Axios
+
+### Backend
+
+* Spring Boot
+* Spring Security
+* JWT Authentication
+* PostgreSQL (Neon)
+
+### DevOps
+
+* Docker (multi-stage build)
+* Render (backend deployment)
+* Netlify (frontend deployment)
+
+---
+
+## 🏗️ Architecture
+
+User → Netlify (Frontend) → Render (Backend) → Neon DB
 
 ---
 
 ## 📁 Project Structure
 
-```
-SpringBoot-Reactjs-Ecommerce-main/
-├── Ecommerce-Backend/       # Spring Boot REST API backend
-├── Ecommerce-Frontend/      # React + Vite frontend application
-```
+SpringBoot-Reactjs-Ecommerce/
+├── Ecommerce-Backend/
+│   ├── controller/
+│   ├── service/
+│   ├── repository/
+│   ├── model/
+│   ├── security/
+│   └── Dockerfile
+│
+└── Ecommerce-Frontend/
+├── components/
+├── pages/
+└── App.jsx
 
 ---
 
-## 🧩 Backend - Spring Boot
+## 🚀 Run Locally
 
-### 🔧 Technologies Used
+### Backend
 
-* Java 17+
-* Spring Boot
-* Spring Data JPA
-* MySQL (can be adapted)
-* Maven
-
-### 📂 Backend Directory Structure
-
-```
-Ecommerce-Backend/
-├── controller/      # REST endpoints
-├── model/           # JPA entity classes
-├── repo/            # Spring Data JPA interfaces
-├── service/         # Business logic
-├── resources/
-│   ├── application.properties
-│   └── data1.sql
-└── pom.xml          # Maven build config
-```
-
-### ⚙️ Setup Instructions
-
-1. **Database Setup:**
-
-   * Create a MySQL database, e.g., `ecomdb`.
-   * Update `application.properties`:
-
-     ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/ecomdb
-     spring.datasource.username=root
-     spring.datasource.password=yourpassword
-     spring.jpa.hibernate.ddl-auto=update
-     ```
-
-2. **Run the App:**
-
-   ```bash
-   cd Ecommerce-Backend
-   mvn spring-boot:run
-   ```
-
-3. **Data Initialization:**
-
-   On first run, `data1.sql` inserts seed product data into your DB.
-
-### 📡 REST API Endpoints
-
-| Method | Endpoint         | Description        |
-| ------ | ---------------- | ------------------ |
-| GET    | `/products`      | Fetch all products |
-| GET    | `/products/{id}` | Get product by ID  |
-| POST   | `/products`      | Add new product    |
-| PUT    | `/products/{id}` | Update product     |
-| DELETE | `/products/{id}` | Delete product     |
+cd Ecommerce-Backend
+mvn spring-boot:run
 
 ---
 
-## 💻 Frontend - React + Vite
+### Frontend
 
-### 🔧 Technologies Used
+cd Ecommerce-Frontend
+npm install
+npm run dev
 
-* ReactJS
-* Vite (bundler)
-* Axios (API calls)
-* Bootstrap (UI)
-* JavaScript (ES6+)
+---
 
-### 📂 Frontend Directory Structure
+## 🔐 Environment Variables
 
-```
-Ecommerce-Frontend/
-├── public/
-├── src/
-│   ├── components/      # Reusable components
-│   ├── pages/           # Page-level components
-│   ├── App.jsx          # App layout
-│   └── main.jsx         # Entry point
-├── package.json
-└── vite.config.js
-```
+### Backend
 
-### ▶️ Getting Started
+DATABASE_URL=your_db_url
+DATABASE_USERNAME=your_username
+DATABASE_PASSWORD=your_password
 
-1. **Install dependencies:**
+---
 
-   ```bash
-   cd Ecommerce-Frontend
-   npm install
-   ```
+### Frontend
 
-2. **Run the app:**
+VITE_API_URL=http://localhost:8080
 
-   ```bash
-   npm run dev
-   ```
+---
 
-   This will launch the frontend at `http://localhost:5173`.
+## 👨‍💻 Author
 
-3. **Connect to Backend:**
+**Sai vignesh**
 
-   Update the backend URL in API service files (usually inside `src/` or `src/services/`) if needed:
+GitHub: https://github.com/Saivignesh-123
 
-   ```js
-   axios.get('http://localhost:8080/products')
-   ```
+---
 
-### 🧩 Features
+## 📄 License
 
-* Product List (from Spring Boot backend)
-* Dynamic rendering using React components
-* Fully responsive UI
-* Easy integration with further features (cart, checkout, login)
+MIT License
 
+---
+
+<p align="center">Built with ❤️ by Sai Vignesh</p>
