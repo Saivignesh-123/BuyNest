@@ -1,0 +1,28 @@
+# Environment files
+.env
+.env.neon
+.env.local
+.env.production
+
+# Backend
+Ecommerce-Backend/.env
+Ecommerce-Backend/.env.neon
+Ecommerce-Backend/target/
+
+# Frontend
+Ecommerce-Frontend/node_modules/
+Ecommerce-Frontend/.env
+Ecommerce-Frontend/dist/
+
+# IDE
+.idea/
+*.iml
+*.class
+
+# Maven
+*.jar
+*.war
+
+# OS
+.DS_Store
+Thumbs.db 
